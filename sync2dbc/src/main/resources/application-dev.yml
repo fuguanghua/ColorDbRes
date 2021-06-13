@@ -1,0 +1,90 @@
+#配置数据源
+spring:
+  datasource:
+    druid:
+      first:
+        db-type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        # url: jdbc:oracle:thin:@47.101.163.253:1521:orcl
+        url: jdbc:oracle:thin:@10.1.0.207:1521:orcl
+        username: sws_business
+        password: SWS_BUSINESS
+
+        # 初始化配置
+        initial-size: 3
+        # 最小连接数
+        min-idle: 3
+        # 最大连接数
+        max-active: 15
+        # 获取连接超时时间
+        max-wait: 5000
+        # 连接有效性检测时间
+        time-between-eviction-runs-millis: 90000
+        # 最大空闲时间
+        min-evictable-idle-time-millis: 1800000
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+
+        validation-query: select 1 FROM DUAL
+        connectionErrorRetryAttempts: 3
+        breakAfterAcquireFailure: false
+        # 配置监控统计拦截的filters
+        filters: stat
+        stat-view-servlet:
+          url-pattern: /druid/*
+          reset-enable: false
+
+        web-stat-filter:
+          url-pattern: /*
+          exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      second:
+        db-type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        # url: jdbc:oracle:thin:@47.101.163.253:1521:orcl
+        url: jdbc:oracle:thin:@10.1.0.207:1521:orcl
+        username: sws_business
+        password: SWS_BUSINESS
+
+        # 初始化配置
+        initial-size: 3
+        # 最小连接数
+        min-idle: 3
+        # 最大连接数
+        max-active: 15
+        # 获取连接超时时间
+        max-wait: 5000
+        # 连接有效性检测时间
+        time-between-eviction-runs-millis: 90000
+        # 最大空闲时间
+        min-evictable-idle-time-millis: 1800000
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+
+        validation-query: select 1 FROM DUAL
+        connectionErrorRetryAttempts: 3
+        breakAfterAcquireFailure: false
+        # 配置监控统计拦截的filters
+        filters: stat
+        stat-view-servlet:
+          url-pattern: /druid/*
+          reset-enable: false
+
+        web-stat-filter:
+          url-pattern: /*
+          exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+
+  #配置 Jpa
+  jpa:
+    hibernate:
+      primary-dialect: org.hibernate.dialect.Oracle12cDialect
+      secondary-dialect: org.hibernate.dialect.Oracle12cDialect
+      # default_schema: sws_business
+    open-in-view: true
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: sws_business
+        temp:
+          use_jdbc_metadata_defaults: false
