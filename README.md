@@ -8,3 +8,11 @@ ColorDbRes
 2、子项目sync2dbc  
 子模块druid实现了基于spring boot、durid、jpa、hibernate的多数据源连接池和基于getbean方法直接获取连接资源的实现。  
 子模块hikaricp实现了基于hikaricp和jdbc直接实现多数据源连接池的实现。  
+  
+功能  
+1、spring boot资源管理下的响应式oracle数据库连接池(客户端对象、访问策略、事务等)实现  
+2、非spring boot资源管理下的线程安全的共享响应式oracle数据库连接的实现  
+3、spring boot资源管理下的响应式mysql数据库连接池(客户端对象、访问策略、事务等)实现  
+4、spring boot资源管理下druid+jpa+hibernate的同步模式多数据源连接池实现  
+5、spring boot资源管理下直接从连接池中显式获取连接资源bean的实现  
+6、非spring boot资源管理下hikaricp+jdbc的同步模式多数据源连接池实现  
