@@ -1,0 +1,73 @@
+server:
+  port: 8000
+spring:
+  main:
+    lazy-initialization: false
+  cache:
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=5s
+    type: caffeine
+    cache-names:
+      - user
+      - info
+
+# ================== datasource ==================
+datasource:
+  oracle:
+    driver: oracle
+    host: 10.1.0.207
+    port: 1521
+    databaseName: orcl
+    username: sws_business
+    password: SWS_BUSINESS
+    CONNECT_TIMEOUT: 15
+    SQL_TIMEOUT: 15
+    validationQuery: SELECT 'x' FROM DUAL
+    maxIdleTime: 1000
+    maxCreateConnectionTime: 1
+    maxAcquireTime: 2
+    initialSize: 10
+    maxSize: 20
+    name: oracleDb
+    registerJmx: false
+
+mysql:
+  # read
+  read:
+    driver: pool
+    protocol: mysql
+    host: localhost
+    port: 3306
+    username: root
+    password: root
+    database: Channel
+    connection-timeout: 10s
+    pool-name: readDbPool
+    initial-size: 10
+    max-size: 20
+    max-idle-time: 15s
+    max-life-time: 20s
+    max-create-connection-time: 5s
+    max-acquire-time: 5s
+    acquire-retry: 20
+
+  # write
+  write:
+    driver: pool
+    protocol: mysql
+    host: localhost
+    port: 3306
+    username: root
+    password: root
+    database: Channel
+    connection-timeout: 10s
+    pool-name: writeDbPool
+    initial-size: 10
+    max-size: 20
+    max-idle-time: 15s
+    max-life-time: 20s
+    max-create-connection-time: 5s
+    max-acquire-time: 5s
+    acquire-retry: 20
+
+# =================== kcbp ======================
